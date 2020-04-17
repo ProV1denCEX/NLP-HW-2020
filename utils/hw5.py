@@ -1,6 +1,7 @@
 from sklearn.utils import Bunch
 import numpy as np
-from keras import backend as K
+from tensorflow.keras import backend as K
+
 
 # Read data from file
 def load_data(filename):
@@ -66,6 +67,7 @@ def ignore_class_accuracy(to_ignore=0):
         return accuracy
     return ignore_accuracy
 
+
 def whole_sentence_accuracy(to_ignore=0):
     def sentence_accuracy(y_true, y_pred):
         y_true_class = K.argmax(y_true, axis=-1)
@@ -78,4 +80,3 @@ def whole_sentence_accuracy(to_ignore=0):
                          
         return accuracy
     return sentence_accuracy
-    
